@@ -39,55 +39,24 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Adding Node.js and Socket.IO
+## Adding React Configuration
 
-To add Node.js and Socket.IO to your project, follow these steps:
+To configure React in your project, follow these steps:
 
-1. **Install Node.js**: If you haven't already, [install Node.js](https://nodejs.org/) on your machine.
+1. **Install Create React App**: If you haven't already, install Create React App globally by running `npm install -g create-react-app`.
 
-2. **Initialize Node.js project**: In your project directory, run `npm init -y` to initialize a new Node.js project with default settings.
+2. **Create a React App**: In your project directory, run `npx create-react-app my-app` to create a new React app named `my-app`. Replace `my-app` with your preferred app name.
 
-3. **Install Socket.IO**: Run `npm install socket.io` to install the Socket.IO library.
+3. **Navigate to the New App**: Move into the newly created app directory by running `cd my-app`.
 
-4. **Create a Node.js server file**: Create a new file, for example `server.js`, and add the following code to create a basic Socket.IO server:
+4. **Start the Development Server**: Start the development server by running `npm start`. This will open your default web browser and load your React app at [http://localhost:3000](http://localhost:3000).
 
-    ```javascript
-    const express = require('express');
-    const http = require('http');
-    const socketIo = require('socket.io');
+5. **Explore React App**: You can now start building your React app! Explore the `src` directory to find the main components and entry point of your app (`index.js`). You can edit these files to customize your app as needed.
 
-    const app = express();
-    const server = http.createServer(app);
-    const io = socketIo(server);
-
-    io.on('connection', (socket) => {
-      console.log('A user connected');
-
-      socket.on('disconnect', () => {
-        console.log('User disconnected');
-      });
-    });
-
-    const port = process.env.PORT || 4001;
-    server.listen(port, () => {
-      console.log(`Server is running on port ${port}`);
-    });
-    ```
-
-5. **Run the Node.js server**: In a terminal, navigate to your project directory and run `node server.js` to start the Node.js server.
-
-6. **Connect from your React app**: In your React app, you can now connect to the Socket.IO server using the `socket.io-client` library. Install it by running `npm install socket.io-client`, then in your React components, you can use it like this:
-
-    ```javascript
-    import io from 'socket.io-client';
-
-    const socket = io('http://localhost:4001'); // Replace with your server URL
-    ```
-
-    You can now emit and listen for events between your React app and the Node.js server using Socket.IO.
+6. **Learn React**: Check out the [React documentation](https://reactjs.org/docs/getting-started.html) to learn more about building React apps, including components, props, state, and more.
 
 ## Learn More
 
-You can learn more about Socket.IO in the [Socket.IO documentation](https://socket.io/docs/).
+You can learn more about React in the [React documentation](https://reactjs.org/docs/getting-started.html).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To learn more about Create React App, check out the [Create React App documentation](https://create-react-app.dev/docs/getting-started/).
